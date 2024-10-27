@@ -3,9 +3,14 @@ import numpy as np
 import cv2  # For drawing bounding boxes
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+import os
 
-# Load the trained object detection model
-model = load_model('ultralytics-coco8.keras')  # Ensure the model is for object detection
+model_path = 'ultralytics-coco8.keras'
+if os.path.exists(model_path):
+    model = load_model(model_path)
+else:
+    st.error("Model file not found. Please ensure the file exists in the correct path.")
+
 
 # Define the classes
 classes = ['class1', 'class2']  # Replace with your actual class names
