@@ -5,7 +5,7 @@ from tensorflow.keras.preprocessing import image
 import os
 
 # Load the trained model
-model = load_model('/content/ultralytics-coco8.keras')
+model = load_model('/content/ultralytics-coco8.h5')
 
 
 # Define the classes
