@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 import cv2  # For drawing bounding boxes
 from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing import image # type: ignore
 import matplotlib.pyplot as plt
 
 # Load the trained object detection model
