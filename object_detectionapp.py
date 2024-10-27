@@ -5,12 +5,17 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 import os
 
-model_path = 'ultralytics-coco8.keras'
-if os.path.exists(model_path):
-    model = load_model(model_path)
-else:
-    st.error("Model file not found. Please ensure the file exists in the correct path.")
+# Function to load the model
+def load_trained_model():
+    model_path = 'ultralytics-coco8.keras'  # Ensure the model file is in the correct path
+    if os.path.exists(model_path):
+        return load_model(model_path)  # Load and return the model
+    else:
+        st.error("Model file not found. Please ensure the file exists in the correct path.")
+        return None  # Return None if the model file doesn't exist
 
+# Load the trained object detection model
+model = load_trained_model()  # Load the model, model will be None if not found
 
 # Define the classes
 classes = ['class1', 'class2']  # Replace with your actual class names
@@ -39,7 +44,7 @@ st.write("Upload an image of an object:")
 # File uploader for image input
 uploaded_file = st.file_uploader("Choose an image...", type=['jpg', 'jpeg', 'png'])
 
-if uploaded_file is not None:
+if uploaded_file is not None and model is not None:
     # Load and display the image
     img = image.load_img(uploaded_file, target_size=(128, 128))
     img_array = preprocess_image(img)
