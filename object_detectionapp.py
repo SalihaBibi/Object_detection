@@ -7,6 +7,7 @@ import os
 # Load the trained model
 model = load_model('/content/ultralytics-coco8.keras')
 
+
 # Define the classes
 classes = ['class1', 'class2']  # Replace with your actual class names
 
