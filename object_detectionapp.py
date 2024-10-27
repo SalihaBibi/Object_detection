@@ -2,11 +2,10 @@ import streamlit as st
 import numpy as np
 import cv2  # For drawing bounding boxes
 from tensorflow.keras.models import load_model
-from tensorflow.keras.preprocessing import image # type: ignore
-import matplotlib.pyplot as plt
+from tensorflow.keras.preprocessing import image
 
 # Load the trained object detection model
-model = load_model('ultralytics-coco8.keras')  
+model = load_model('ultralytics-coco8.keras')  # Ensure the model is for object detection
 
 # Define the classes
 classes = ['class1', 'class2']  # Replace with your actual class names
